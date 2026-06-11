@@ -1,0 +1,93 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Diphylleia';
+}
+body {
+    background-image: url('img/fundo.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.login-container {
+    width: 100%;
+    max-width: 380px;
+    padding: 20px;
+    text-align: center;
+}
+
+
+.titulo-login {
+    color: #FCEAA6; 
+    font-size: 45px;
+    font-weight: 400;
+    margin-bottom: 40px;
+    letter-spacing: 2px;
+}
+
+
+.input-grupo {
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.input-grupo input {
+    width: 100%;
+    padding: 10px 0;
+    background: transparent; 
+    border: none;
+    border-bottom: 1.5px solid #757575; 
+    color: #ffffff;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+
+.input-grupo label {
+    position: absolute;
+    left: 0;
+    top: 10px;
+    color: #757575;
+    pointer-events: none;
+    transition: 0.3s ease all;
+    font-size: 16px;
+}
+
+
+.input-grupo input:focus ~ label,
+.input-grupo input:not(:placeholder-shown) ~ label {
+    top: -15px;
+    font-size: 12px;
+    color: #FCEAA6;
+}
+
+.input-grupo input:focus {
+    border-bottom: 1.5px solid #FCEAA6; 
+}
+
+
+.btn-enviar {
+    width: 100%;
+    background-color: #FCEAA6;
+    color: #232226;
+    border: none;
+    padding: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.2s;
+}
+
+.btn-enviar:hover {
+    background-color: #edd987;
+}
