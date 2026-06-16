@@ -18,7 +18,7 @@ $filmes = $stmt->fetchAll(PDO::FETCH_ASSOC);
 <head>
     <meta charset="UTF-8">
     <title>Painel Administrativo</title>
-    <link rel="stylesheet" href="css/telaFuncionarios.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <a href="filmes.php" class="seta">&lsaquo; Sair do Painel</a>

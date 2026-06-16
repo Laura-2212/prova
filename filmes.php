@@ -42,7 +42,7 @@ if (isset($_GET['filme']) && array_key_exists($_GET['filme'], $filmes)) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Catálogo de Filmes</title>
-    <link rel="stylesheet" href="CSS/filmes.css">
+    <link rel="stylesheet" href="CSS/style.css">
 </head>
 
 <body>
@@ -74,28 +74,6 @@ if (isset($_GET['filme']) && array_key_exists($_GET['filme'], $filmes)) {
             <?php endforeach; ?>
         </div>
     </main>
-
-    <?php if ($filmeSelecionado): ?>
-        <div class="modal-overlay <?php echo $modalClasse; ?>" id="modalFilme">
-            <div class="modal-conteudo">
-                <a href="filmes.php" class="seta-voltar">&lsaquo;</a>
-
-                <img src="<?php echo $filmeSelecionado['imagem']; ?>" alt="Poster" class="modal-poster">
-
-                <div class="modal-sinopse">
-                    <p><?php echo $filmeSelecionado['sinopse']; ?></p>
-                </div>
-
-                <div class="modal-dados">
-                    <span class="tag">Ano: <?php echo $filmeSelecionado['ano']; ?></span>
-                    <span class="tag">Diretor: <?php echo $filmeSelecionado['diretor']; ?></span>
-                </div>
-
-                <a href="alugarFilme.php?filme=<?php echo htmlspecialchars($_GET['filme']); ?>" class="btn-alugar" style="display: block; text-align: center; text-decoration: none;">Alugar filme</a>
-            </div>
-        </div>
-    <?php endif; ?>
-
 </body>
 
 </html>

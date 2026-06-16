@@ -10,7 +10,6 @@ $titulo = "";
 $diretor = "";
 $ano = "";
 $url = "";
-$sinopse = ""; 
 $mensagem_erro = "";
 
 if ($id) {
@@ -24,7 +23,6 @@ if ($id) {
             $diretor = $filme['diretor'] ?? '';
             $ano = $filme['ano_lancamento'] ?? '';
             $url = $filme['imagem_url'];
-            $sinopse = $filme['sinopse'] ?? ''; 
         }
     } catch (PDOException $e) {
         $mensagem_erro = "Erro ao buscar: " . $e->getMessage();
@@ -36,18 +34,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $diretor_post = $_POST['diretor_filme'] ?? '';
     $ano_post = !empty($_POST['ano_filme']) ? (int)$_POST['ano_filme'] : null;
     $url_post = $_POST['url_filme'] ?? '';
-    $sinopse_post = $_POST['sinopse_filme'] ?? ''; 
 
     if (!empty($titulo_post) && !empty($url_post)) {
         try {
             if ($id) {
 
-                $sql = "UPDATE filmesByFuncionarios SET titulo = ?, diretor = ?, ano_lancamento = ?, imagem_url = ?, sinopse = ? WHERE id = ?";
-                $pdo->prepare($sql)->execute([$titulo_post, $diretor_post, $ano_post, $url_post, $sinopse_post, $id]);
+                $sql = "UPDATE filmesByFuncionarios SET titulo = ?, diretor = ?, ano_lancamento = ?, imagem_url = ?, WHERE id = ?";
+                $pdo->prepare($sql)->execute([$titulo_post, $diretor_post, $ano_post, $url_post, $id]);
             } else {
               
-                $sql = "INSERT INTO filmesByFuncionarios (titulo, diretor, ano_lancamento, imagem_url, sinopse) VALUES (?, ?, ?, ?, ?)";
-                $pdo->prepare($sql)->execute([$titulo_post, $diretor_post, $ano_post, $url_post, $sinopse_post]);
+                $sql = "INSERT INTO filmesByFuncionarios (titulo, diretor, ano_lancamento, imagem_url) VALUES (?, ?, ?, ?, ?)";
+                $pdo->prepare($sql)->execute([$titulo_post, $diretor_post, $ano_post, $url_post]);
             }
 
             echo "<script>alert('Filme salvo com sucesso!'); window.location.href='telaFuncionarios.php';</script>";
@@ -66,7 +63,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Adicionar Filme</title>
-    <link rel="stylesheet" href="CSS/novoform.css">
+    <link rel="stylesheet" href="CSS/style.css">
     <style>
         .textarea-linha { width: 100%; background: transparent; border: 1px solid #7a7980; border-radius: 6px; padding: 10px; color: white; margin-bottom: 20px; outline: none; font-size: 15px; min-height: 100px; resize: vertical; }
     </style>
@@ -96,7 +93,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <input type="text" name="diretor_filme" placeholder="Diretor" value="<?= htmlspecialchars($diretor) ?>" class="input-linha">
                 <input type="number" name="ano_filme" placeholder="Ano de lançamento" value="<?= htmlspecialchars($ano) ?>" class="input-linha">
                 
-                <textarea name="sinopse_filme" placeholder="Sinopse/Descrição do filme" class="textarea-linha"><?= htmlspecialchars($sinopse) ?></textarea>
                 
                 <input type="text" id="url_img" name="url_filme" placeholder="URL da imagem da capa" value="<?= htmlspecialchars($url) ?>" class="input-linha" required>
             </div>

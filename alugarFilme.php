@@ -69,7 +69,7 @@ if (!$filmeSelecionado) {
 <head>
     <meta charset="UTF-8">
     <title>Aluguel de Filme</title>
-    <link rel="stylesheet" href="css/aluguel.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <a href="filmes.php" class="seta-voltar">&lsaquo;</a>
