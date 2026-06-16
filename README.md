@@ -1,4 +1,4 @@
-# 🎬 LocadoraStream
+#  Locadora
 
 Sistema de locação de filmes desenvolvido em **PHP 8** com banco de dados **PostgreSQL**, permitindo cadastro de clientes, gerenciamento de filmes e controle de aluguéis.
 
