@@ -20,7 +20,7 @@ Sistema de locação de filmes desenvolvido em **PHP 8** com banco de dados **Po
 ### 1. Clone o repositório
 
 ```bash
-git clone <url-do-repositorio>
+git clone <https://github.com/Laura-2212/prova.git>
 cd LocadoraStream
 ```
 
