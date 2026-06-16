@@ -22,7 +22,7 @@ if ($id) {
             $titulo = $filme['titulo'];
             $diretor = $filme['diretor'] ?? '';
             $ano = $filme['ano_lancamento'] ?? '';
-            $url = $filme['imagem_url'];
+            $url = $filme['img_url'];
         }
     } catch (PDOException $e) {
         $mensagem_erro = "Erro ao buscar: " . $e->getMessage();
@@ -43,7 +43,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $pdo->prepare($sql)->execute([$titulo_post, $diretor_post, $ano_post, $url_post, $id]);
             } else {
               
-                $sql = "INSERT INTO filmesByFuncionarios (titulo, diretor, ano_lancamento, imagem_url) VALUES (?, ?, ?, ?, ?)";
+                $sql = "INSERT INTO filmesByFuncionarios (titulo, diretor, ano_lancamento, imagem_url) VALUES (?, ?, ?, ?)";
                 $pdo->prepare($sql)->execute([$titulo_post, $diretor_post, $ano_post, $url_post]);
             }
 
@@ -84,7 +84,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <form action="formulario_novo_filme.php<?= $id ? '?edit=' . $id : '' ?>" method="POST">
         <div class="container-form">
             
-            <div class="box-upload" onclick="document.getElementById('url_img').focus()">
+            <div class="box-upload" onclick="document.getElementById('img_url').focus()">
                 <span>+</span>
             </div>
 
